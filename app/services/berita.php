@@ -42,7 +42,6 @@ class Berita extends Location {
             $statement = $this->db->prepare($sql);
             $statement->bindParam('id', $id, PDO::PARAM_STR, 36);
             $statement->bindParam('userId', $userId, PDO::PARAM_STR, 36);
-            $statement->bindParam('name', $name, PDO::PARAM_STR, 255);
             $statement->bindParam('titel', $titel, PDO::PARAM_STR, 140);
             $statement->bindParam('deskripsi', $deskripsi, PDO::PARAM_STR);
             $statement->bindParam('kategori', $kategori, PDO::PARAM_STR, 140);

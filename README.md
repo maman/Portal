@@ -9,7 +9,7 @@ Aplikasi web portal berbasis PHP untuk manajemen anggota, berita, dan lowongan p
 3. Masuk ke direktori aplikasi: `cd Portal`.
 4. Install dependensi dengan composer: `docker run --rm -v (pwd):/app composer/composer:latest install`.
 5. Jalankan aplikasi: `docker-compose up`.
-6. Buka browser, dan buka [http://localhost:8080](http://localhost:8080).
+6. Buka browser, dan buka [http://localhost:9091](http://localhost:9091).
 
 ## Deployment
 

@@ -1,0 +1,83 @@
+@import '~spectre.css/spectre.less';
+@import '~spectre.css/spectre-exp.less';
+@import '~spectre.css/spectre-icons.less';
+
+// Custom variables
+@import 'variables.less';
+
+@authHeight: 200px;
+
+/* Layout */
+.inner-wrapper {
+  margin: 0 auto;
+  flex: 1 1 auto;
+  max-width: 960px;
+}
+
+/* Header */
+header.main-header {
+  display: flex;
+  background-color: #2d72d9;
+  padding: .8rem 0;
+  z-index: 2;
+  a,
+  .btn,
+  .btn.active,
+  .btn:hover {
+    color: #fff;
+  }
+  .btn.active,
+  .btn:hover {
+    font-weight: bold;
+  }
+  .avatar {
+    border: 3px solid #fff;
+  }
+  .inner-wrapper {
+    justify-content: center;
+  }
+}
+
+/* login form */
+.login-form {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  padding: 1rem 0;
+  background-color: #222;
+  height: @authHeight;
+  .form-main {
+    // margin-top: 1rem;
+  }
+}
+
+/* main-content */
+section.main {
+  position: relative;
+  z-index: 2;
+  transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1);
+  &.showAuth {
+    transform: translateY(@authHeight);
+    transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .filters {
+    box-shadow: none;
+    transition: box-shadow 1s ease-out;
+    &.stick {
+      transition: box-shadow .5s ease-in;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      box-shadow: 0 1px 15px rgba(0, 0, 0, .2);
+    }
+    background-color: #fff;
+  }
+  .main-content {
+    display: flex;
+    background-color: #eee;
+  }
+  .content-wrapper {
+    background-color: #fff;
+    margin: 1rem 0;
+  }
+}

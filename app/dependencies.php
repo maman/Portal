@@ -1,5 +1,4 @@
 <?php
-
 $container = $app->getContainer();
 
 $container['flash'] = function ($c) {
@@ -7,12 +6,12 @@ $container['flash'] = function ($c) {
 };
 
 if (!$isProduction) {
-    $container['twig_profile'] = function() {
+    $container['twig_profile'] = function () {
         return new Twig_Profiler_Profile();
     };
 }
 
-$container['view'] = function($c) {
+$container['view'] = function ($c) {
     $settings = $c->get('settings')['renderer'];
     $view = new \Slim\Views\Twig($settings['template_path'], [
         'cache' => $settings['cache'],
@@ -23,6 +22,9 @@ $container['view'] = function($c) {
         $c->get('router'),
         $c->get('request')->getUri()
     ));
+    $view->getEnvironment()->addGlobal('env', $c->isProduction ? 'production' : 'development');
+    $view->getEnvironment()->addGlobal('baseUrl', $c->baseUrl);
+    $view->getEnvironment()->addGlobal('assetsUrl', $c->assetsUrl);
     if (!$isProduction) {
         $view->addExtension(new Twig_Extension_Profiler($c['twig_profile']));
         $view->addExtension(new Twig_Extension_Debug());
@@ -30,7 +32,7 @@ $container['view'] = function($c) {
     return $view;
 };
 
-$container['logger'] = function($c) {
+$container['logger'] = function ($c) {
     $settings = $c->get('settings')['logger'];
     $logger = new \Monolog\Logger($settings['name']);
     $logger->pushProcessor(new \Monolog\Processor\UidProcessor());
@@ -38,7 +40,7 @@ $container['logger'] = function($c) {
     return $logger;
 };
 
-$container['db'] = function($c) {
+$container['db'] = function ($c) {
     $settings = $c->get('settings')['db'];
     $pdo = new \PDO('mysql:host=' . $settings['dbHost'] . ';dbname=' . $settings['dbName'], $settings['dbUser'], $settings['dbPasswd']);
     $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);

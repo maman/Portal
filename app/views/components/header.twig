@@ -1,0 +1,93 @@
+<header class="main-header">
+	<div class="inner-wrapper">
+		<div class="container">
+			<div class="navbar">
+				<section class="navbar-section">
+					<a href="#" class="navbar-brand mr-10">SPBU17</a>
+					<a href="#" class="btn btn-link active">Berita</a>
+					<a href="#" class="btn btn-link">Lowongan</a>
+					<a href="#" class="btn btn-link">Direktori</a>
+				</section>
+				<section class="navbar-section">
+					{% if user %}
+						<div class="dropdown dropdown-right">
+							<figure class="avatar badge dropdown-toggle" data-badge="8" tabindex="0">
+								<img src="http://via.placeholder.com/350x350" alt="maman" />
+							</figure>
+							<ul class="menu">
+								<li class="divider" data-content="Profil"></li>
+								<li class="menu-item"><a href="#">Profil</a></li>
+								<li class="menu-item"><a href="#">Edit Profil</a></li>
+								<li class="divider" data-content="Lowongan"></li>
+								<li class="menu-item">
+									<a href="#">Posting Lowongan</a>
+								</li>
+								<li class="menu-item">
+									<div class="menu-badge">
+										<label class="label label-primary">8</label>
+									</div>
+									<a href="#">Lamaran</a>
+								</li>
+								<li class="divider" data-content="Berita"></li>
+								<li class="menu-item">
+									<a href="#">Posting Berita</a>
+								</li>
+							</ul>
+						</div>
+					{% else %}
+						<a href="#" class="btn btn-link" data-toggle="content:showAuth">Masuk/Register</a>
+					{% endif %}
+				</section>
+			</div>
+		</div>
+	</div>
+</header>
+{% if not user %}
+<div class="login-form">
+	<div class="inner-wrapper">
+		<div class="container grid-sm">
+			<div class="columns">
+				<div class="column col-6 col-sm-12">
+					<form
+						action="/auth/authenticate"
+						method="POST"
+						class="form-main"
+					>
+						<div class="form-group">
+							<input
+								class="form-input"
+								id="name"
+								type="text"
+								name="email"
+								placeholder="Email"
+							/>
+						</div>
+						<div class="form-group">
+							<input
+								class="form-input"
+								id="password"
+								type="password"
+								name="password"
+								placeholder="Password"
+							/>
+						</div>
+						<a href="#" class="btn btn-link">Lupa password?</a>
+						<input
+							type="submit"
+							value="Login"
+							class="btn btn-primary float-right"
+						/>
+					</form>
+				</div>
+				<div class="column col-6 col-sm-12">
+					<div class="">
+						<h4>Belum terdaftar?</h4>
+						<p>Daftar lur biar berguna hidupmu, ndak nyusahin mama papa dirumah</p>
+						<a href="#" class="btn btn-primary">Daftar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}

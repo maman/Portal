@@ -70,7 +70,6 @@ ENGINE = InnoDB CHARSET=utf8;
 CREATE TABLE IF NOT EXISTS `portal`.`berita` (
   `id` VARCHAR (36) NOT NULL,
   `userid` VARCHAR (36) NOT NULL,
-  `name` VARCHAR (255) NOT NULL,
   `titel` VARCHAR (140) NOT NULL,
   `deskripsi` TEXT NOT NULL,
   `kategori` VARCHAR (140) NOT NULL,

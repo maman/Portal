@@ -1,14 +1,16 @@
 <?php
-
 use Tracy\Debugger;
 
 $basedir = __DIR__ . '/../';
-$appName = 'php-slim';
+$appName = 'Portal';
+$appBaseUrl = getenv('APP_BASE_URL');
+$appAssetsUrl = getenv('APP_ASSETS_URL');
 $isProduction = getenv('PHP_ENV') == 'production' ? true : false;
 
 if (!$isProduction) {
     Debugger::enable(Debugger::DEVELOPMENT, $basedir . 'logs');
-} else {
+}
+else {
     Debugger::enable(Debugger::PRODUCTION, $basedir . 'logs');
 }
 
@@ -19,6 +21,8 @@ ini_set('error_log', $basedir . 'logs/' . $appName . '-php.log');
 date_default_timezone_set(getenv('PHP_APP_LOCALE'));
 
 return [
+    'baseUrl' => $appBaseUrl,
+    'assetsUrl' => $appAssetsUrl,
     'isProduction' => $isProduction,
     'settings' => [
         'displayErrorDetails' => !$isProduction,
