@@ -1,4 +1,4 @@
 logs/**
-src/views-cache/**
+app/views-cache/**
 vendor
 .vscode

@@ -1,3 +1,3 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../src/index.php';
+require __DIR__ . '/../app/index.php';

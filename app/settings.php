@@ -16,8 +16,8 @@ return [
         'displayErrorDetails' => !$isProduction,
         'addContentLengthHeader' => true,
         'renderer' => [
-            'template_path' => $basedir . 'src/views',
-            'cache' => $basedir . 'src/views-cache',
+            'template_path' => $basedir . 'app/views',
+            'cache' => $basedir . 'app/views-cache',
             'debug' => !$isProduction,
             'auto_reload' => !$isProduction,
         ],
