@@ -31,7 +31,7 @@ class Location {
             $explodedRegionCode = explode('.', $regionCode);
             $province = $explodedRegionCode[0];
             $city = $explodedRegionCode[0] . '.' . $explodedRegionCode[1];
-            $district = $explodedRegionCode[0] . '.' . $explodedRegionCode[1] . '.' . $explodedRegionCode[2];
+            $district = $city . '.' . $explodedRegionCode[2];
             $subDistrict = $regionCode;
             $statement = $this->db->prepare($sql);
             $statement->bindParam(':province', $province, PDO::PARAM_STR, 2);
