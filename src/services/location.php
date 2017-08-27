@@ -61,7 +61,7 @@ class Location {
                 region_name,
                 parent_code
             FROM
-                location
+                tbl_regions
             WHERE
                 parent_code = :regionCode
         ';
