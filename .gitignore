@@ -2,4 +2,5 @@ logs/**
 app/views-cache/**
 db-data
 vendor
+node_modules
 .vscode

@@ -1,0 +1,27 @@
+{
+  "name": "portal",
+  "version": "1.0.0",
+  "description": "Aplikasi web portal berbasis PHP untuk manajemen anggota, berita, dan lowongan pekerjaan",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "concurrently --kill-others --kill-others-on-fail \"docker-compose up\" \"gulp watch\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maman/Portal.git"
+  },
+  "author": "SPBU17",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maman/Portal/issues"
+  },
+  "homepage": "https://github.com/maman/Portal#readme",
+  "dependencies": {
+    "concurrently": "^3.5.0",
+    "webpack": "^3.5.5"
+  }
+}

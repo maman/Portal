@@ -247,31 +247,6 @@ class Membership extends Location {
         }
     }
 
-    private function getSubscribedKerjaan($userId) {
-        $sql='
-            SELECT
-                kerjaan.company_name,
-                kerjaan.kategori,
-                kerjaan.title,
-            FROM
-                kerjaan-subscriber,
-                kerjaan
-            WHERE
-                kerjaan.id = kerjaan-subscriber.kerjaanid
-            AND
-                kerjaan-subscriber.userid = :userId
-        ';
-    }
-
-    private function deleteAllSubscribedKerjaan($userId) {
-        $sql='
-            DELETE FROM
-                kerjaan-subscriber
-            WHERE
-                userid = :userId
-        ';
-    }
-
     function create(
         $email,
         $password,
@@ -523,6 +498,24 @@ class Membership extends Location {
                 kerjaan-subscriber
             WHERE
                 id = :subscribedKerjaanId
+        ';
+    }
+
+    function listPostedKerjaan($userId) {}
+
+    function getSubscribedKerjaan($userId) {
+        $sql='
+            SELECT
+                kerjaan.company_name,
+                kerjaan.kategori,
+                kerjaan.title,
+            FROM
+                kerjaan-subscriber,
+                kerjaan
+            WHERE
+                kerjaan.id = kerjaan-subscriber.kerjaanid
+            AND
+                kerjaan-subscriber.userid = :userId
         ';
     }
 }

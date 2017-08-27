@@ -72,9 +72,9 @@ CREATE TABLE IF NOT EXISTS `portal`.`berita` (
   `userid` VARCHAR (36) NOT NULL,
   `name` VARCHAR (255) NOT NULL,
   `titel` VARCHAR (140) NOT NULL,
-  `deskripsi` VARCHAR (140) NOT NULL,
+  `deskripsi` TEXT NOT NULL,
   `kategori` VARCHAR (140) NOT NULL,
-  `attachment` VARCHAR (200) NOT NULL,
+  `attachment` VARCHAR (255) NOT NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
