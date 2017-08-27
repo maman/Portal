@@ -4,11 +4,12 @@ Aplikasi web portal berbasis PHP untuk manajemen anggota, berita, dan lowongan p
 
 ## Development
 
-1. Download [docker CE](https://store.docker.com/search?offering=community&type=edition) sesuai dengan sistem operasi kamu.
+1. Download [node.js](https://nodejs.org/en/download/current/) dan [docker CE](https://store.docker.com/search?offering=community&type=edition) sesuai dengan sistem operasi kamu.
 2. Clone repositori ini: `git clone https://github.com/maman/Portal`.
 3. Masuk ke direktori aplikasi: `cd Portal`.
-4. Install dependensi dengan composer: `docker run --rm -v (pwd):/app composer/composer:latest install`.
-5. Jalankan aplikasi: `docker-compose up`.
+4. Install dependensi dengan composer: `docker run --rm -v $(pwd):/app composer/composer:latest install`.
+5. Install build tools dengan npm: `npm install`.
+5. Jalankan aplikasi: `npm start`.
 6. Buka browser, dan buka [http://localhost:9091](http://localhost:9091).
 
 ## Deployment
