@@ -1,0 +1,19 @@
+{
+    "name": "Portal",
+    "version": "1.0.0",
+    "description": "kopet dan kawan kawan",
+    "license": "mit",
+    "require": {
+        "slim/slim": "^3",
+        "slim/twig-view": "^2.2",
+        "monolog/monolog": "^1.23",
+        "slim/flash": "^0.2.0",
+        "runcmf/runtracy": "^0.2.10",
+        "ramsey/uuid": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Portal\\": "src/"
+        }        
+    }
+}

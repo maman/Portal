@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    {% if not user %}
+        <div>
+            <form action="/auth/authenticate" method="POST">
+                <input type="text" name="email" />
+                <input type="password" name="password" />
+                <input type="reset" value="Reset Form">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    {% else %}
+        <h1>{user.name}</h1>
+    {% endif %}
+{% endblock %}
