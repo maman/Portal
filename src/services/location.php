@@ -63,7 +63,7 @@ class Location {
             FROM
                 location
             WHERE
-                region_code = :regionCode
+                parent_code = :regionCode
         ';
         try {
             $statement = $this->db->prepare($sql);
