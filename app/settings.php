@@ -1,8 +1,16 @@
 <?php
 
+use Tracy\Debugger;
+
 $basedir = __DIR__ . '/../';
 $appName = 'php-slim';
 $isProduction = getenv('PHP_ENV') == 'production' ? true : false;
+
+if (!$isProduction) {
+    Debugger::enable(Debugger::DEVELOPMENT, $basedir . 'logs');
+} else {
+    Debugger::enable(Debugger::PRODUCTION, $basedir . 'logs');
+}
 
 error_reporting($isProduction ? 'E_ALL' : 'E_ALL');
 ini_set('display_errors', !$isProduction);
@@ -14,7 +22,37 @@ return [
     'isProduction' => $isProduction,
     'settings' => [
         'displayErrorDetails' => !$isProduction,
-        'addContentLengthHeader' => true,
+        'determineRouteBeforeAppMiddleware' => !$isProduction,
+        'addContentLengthHeader' => false,
+        'tracy' => [
+            'showPhpInfoPanel' => 0,
+            'showSlimRouterPanel' => 1,
+            'showSlimEnvironmentPanel' => 0,
+            'showSlimRequestPanel' => 1,
+            'showSlimResponsePanel' => 1,
+            'showSlimContainer' => 0,
+            'showTwigPanel' => 1,
+            'showVendorVersionsPanel' => 0,
+            'showXDebugHelper' => 1,
+            'showIncludedFiles' => 1,
+            'showConsolePanel' => 0,
+            'configs' => [
+                'XDebugHelperIDEKey' => 'PHPSTORM',
+                'ConsoleNoLogin' => 0,
+                'ConsoleAccounts' => [
+                    'dev' => '34c6fceca75e456f25e7e99531e2425c6c1de443'// = sha1('dev')
+                ],
+                'ConsoleHashAlgorithm' => 'sha1',
+                'ConsoleHomeDirectory' => $basedir,
+                'ProfilerPanel' => [
+                    'show' => [
+                        'memoryUsageChart' => 1, // or false
+                        'shortProfiles' => true, // or false
+                        'timeLines' => true // or false
+                    ]
+                ]
+            ]
+        ],
         'renderer' => [
             'template_path' => $basedir . 'app/views',
             'cache' => $basedir . 'app/views-cache',

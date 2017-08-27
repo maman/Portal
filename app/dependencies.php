@@ -7,7 +7,7 @@ $container['flash'] = function ($c) {
 };
 
 if (!$isProduction) {
-    $container['twig_profiler'] = function() {
+    $container['twig_profile'] = function() {
         return new Twig_Profiler_Profile();
     };
 }
@@ -24,7 +24,7 @@ $container['view'] = function($c) {
         $c->get('request')->getUri()
     ));
     if (!$isProduction) {
-        $view->addExtension(new Twig_Extension_Profiler($c['twig_profiler']));
+        $view->addExtension(new Twig_Extension_Profiler($c['twig_profile']));
         $view->addExtension(new Twig_Extension_Debug());
     }
     return $view;
