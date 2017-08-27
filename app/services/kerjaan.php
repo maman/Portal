@@ -59,7 +59,7 @@ class Kerjaan extends Location {
         }
     }
 
-    function get($type, $remote, $regionCode, $currentPage, $offset, $size) {}
+    function get($kategori, $remote, $regionCode, $currentPage, $offset, $size) {}
 
     function getDetail($kerjaanId) {}
     

@@ -247,6 +247,31 @@ class Membership extends Location {
         }
     }
 
+    private function getSubscribedKerjaan($userId) {
+        $sql='
+            SELECT
+                kerjaan.company_name,
+                kerjaan.kategori,
+                kerjaan.title,
+            FROM
+                kerjaan-subscriber,
+                kerjaan
+            WHERE
+                kerjaan.id = kerjaan-subscriber.kerjaanid
+            AND
+                kerjaan-subscriber.userid = :userId
+        ';
+    }
+
+    private function deleteAllSubscribedKerjaan($userId) {
+        $sql='
+            DELETE FROM
+                kerjaan-subscriber
+            WHERE
+                userid = :userId
+        ';
+    }
+
     function create(
         $email,
         $password,
@@ -469,12 +494,35 @@ class Membership extends Location {
             $statement->execute();
             $resultAlamat = $this->deleteAlamat($userId);
             $resultSocmed = $this->deleteSocmed($userId);
-            if (!$resultAlamat || !$resultSocmed) {
+            $resultSubscriber = $this->deleteAllSubscribedKerjaan($userId);
+            if (!$resultAlamat || !$resultSocmed || $resultSubscriber) {
                 return false;
             }
         } catch (PDOException $e) {
             $this->logger->error("Membership::delete : '$userId'");
             return false;
         }
+    }
+
+    function subscribeKerjaan($userId, $kerjaanId) {
+        $sql='
+            INSERT INTO
+                kerjaan-subscriber
+            VALUES
+                (
+                    id = :id,
+                    userid = :userId,
+                    kerjaanid = :kerjaanId
+                )
+        ';
+    }
+
+    function unsubscribeKerjaan($subscribedKerjaanId) {
+        $sql='
+            DELETE FROM
+                kerjaan-subscriber
+            WHERE
+                id = :subscribedKerjaanId
+        ';
     }
 }
