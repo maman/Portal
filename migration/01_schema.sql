@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `portal`.`kerjaan` (
   `id` VARCHAR (36) NOT NULL,
   `userid` VARCHAR (36) NOT NULL,
   `company_name` VARCHAR (255) NOT NULL,
-  `type` VARCHAR (140) NOT NULL,
+  `kategori` VARCHAR (140) NOT NULL,
   `titel` VARCHAR (140) NOT NULL,
   `remote` BOOLEAN NOT NULL,
   `region_code` VARCHAR (15) NOT NULL,
@@ -57,6 +57,13 @@ CREATE TABLE IF NOT EXISTS `portal`.`kerjaan` (
   `expiry` TIMESTAMP NOT NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `portal`.`kerjaan-subscriber` (
+  `id` VARCHAR (36) NOT NULL,
+  `userid` VARCHAR (36) NOT NULL,
+  `kerjaanid` VARCHAR (36) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB CHARSET=utf8;
 
