@@ -23,6 +23,7 @@
   "homepage": "https://github.com/maman/Portal#readme",
   "dependencies": {
     "jquery": "^3.2.1",
+    "position--sticky-": "github:matthewp/position--sticky-",
     "spectre.css": "^0.3.1",
     "waypoints": "^4.0.1"
   },

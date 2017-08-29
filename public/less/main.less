@@ -2,6 +2,9 @@
 @import '~spectre.css/spectre-exp.less';
 @import '~spectre.css/spectre-icons.less';
 
+// spectre patches
+@import 'patches/button.less';
+
 // Custom variables
 @import 'variables.less';
 
@@ -17,24 +20,67 @@
 /* Header */
 header.main-header {
   display: flex;
-  background-color: #2d72d9;
-  padding: .8rem 0;
   z-index: 2;
-  a,
-  .btn,
-  .btn.active,
-  .btn:hover {
-    color: #fff;
+  .portal-logo {
+    height: 60px;
+    margin-right: 2rem;
+    h1 {
+      margin: 0;
+      padding: 0;
+      line-height: @html-line-height;
+      color: #fff;
+      text-shadow: rgb(36, 92, 175) 1px 1px 0px, rgb(36, 92, 175) 2px 2px 0px,
+        rgb(36, 92, 175) 3px 3px 0px, rgb(36, 92, 175) 4px 4px 0px,
+        rgb(36, 92, 175) 5px 5px 0px, rgb(36, 92, 175) 6px 6px 0px,
+        rgb(36, 92, 175) 7px 7px 0px, rgb(36, 92, 175) 8px 8px 0px,
+        rgb(36, 92, 175) 9px 9px 0px, rgb(36, 92, 175) 10px 10px 0px,
+        rgb(36, 92, 175) 11px 11px 0px, rgb(36, 92, 175) 12px 12px 0px,
+        rgb(36, 92, 175) 13px 13px 0px, rgb(36, 92, 175) 14px 14px 0px,
+        rgb(36, 92, 175) 15px 15px 0px, rgb(36, 92, 175) 16px 16px 0px,
+        rgb(36, 92, 175) 17px 17px 0px, rgb(36, 92, 175) 18px 18px 0px,
+        rgb(36, 92, 175) 19px 19px 0px, rgb(36, 92, 175) 20px 20px 0px,
+        rgb(36, 92, 175) 21px 21px 0px, rgb(36, 92, 175) 22px 22px 0px,
+        rgb(36, 92, 175) 23px 23px 0px, rgb(36, 92, 175) 24px 24px 0px,
+        rgb(36, 92, 175) 25px 25px 0px, rgb(36, 92, 175) 26px 26px 0px,
+        rgb(36, 92, 175) 27px 27px 0px, rgb(36, 92, 175) 28px 28px 0px,
+        rgb(36, 92, 175) 29px 29px 0px, rgb(36, 92, 175) 30px 30px 0px,
+        rgb(36, 92, 175) 31px 31px 0px, rgb(36, 92, 175) 32px 32px 0px,
+        rgb(36, 92, 175) 33px 33px 0px, rgb(36, 92, 175) 34px 34px 0px,
+        rgb(36, 92, 175) 35px 35px 0px, rgb(36, 92, 175) 36px 36px 0px,
+        rgb(36, 92, 175) 37px 37px 0px, rgb(36, 92, 175) 38px 38px 0px,
+        rgb(36, 92, 175) 39px 39px 0px, rgb(36, 92, 175) 40px 40px 0px,
+        rgb(36, 92, 175) 41px 41px 0px, rgb(36, 92, 175) 42px 42px 0px,
+        rgb(36, 92, 175) 43px 43px 0px, rgb(36, 92, 175) 44px 44px 0px,
+        rgb(36, 92, 175) 45px 45px 0px;
+    }
   }
-  .btn.active,
-  .btn:hover {
-    font-weight: bold;
+  .active {
+    .btn-text {
+      font-weight: bold;
+      color: #fff;
+    }
   }
   .avatar {
     border: 3px solid #fff;
   }
   .inner-wrapper {
     justify-content: center;
+  }
+}
+
+/* page-filter */
+.page-filter {
+  z-index: 3;
+  position: sticky;
+  top: 0;
+  .filters {
+    box-shadow: none;
+    transition: box-shadow .5s ease-out;
+    background-color: #fff;
+    &.stuck {
+      transition: box-shadow .25s ease-in;
+      box-shadow: 0 1px 15px rgba(0, 0, 0, .2);
+    }
   }
 }
 
@@ -47,7 +93,15 @@ header.main-header {
   background-color: #222;
   height: @authHeight;
   .form-main {
-    // margin-top: 1rem;
+    .form-group {
+      margin: .8rem 0;
+    }
+    .btn-forgot-password {
+      padding-left: 0;
+    }
+  }
+  .login-print {
+    padding: .4rem 0;
   }
 }
 
@@ -59,18 +113,11 @@ section.main {
   &.showAuth {
     transform: translateY(@authHeight);
     transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .filters {
-    box-shadow: none;
-    transition: box-shadow 1s ease-out;
-    &.stick {
-      transition: box-shadow .5s ease-in;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      box-shadow: 0 1px 15px rgba(0, 0, 0, .2);
+    .content-wrapper {
+      &.sticky {
+        top: -7.4rem;
+      }
     }
-    background-color: #fff;
   }
   .main-content {
     display: flex;
@@ -79,5 +126,9 @@ section.main {
   .content-wrapper {
     background-color: #fff;
     margin: 1rem 0;
+    &.sticky {
+      position: sticky;
+      top: 2.4rem;
+    }
   }
 }

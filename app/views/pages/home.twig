@@ -6,31 +6,6 @@
 
 {% block content %}
   <section class="main" data-toggle-target="content">
-		<div class="filters" data-sticky>
-			<div class="inner-wrapper">
-				<div class="container">
-					<div class="navbar">
-						<section class="navbar-section">
-							<div class="popover popover-bottom">
-								<a href="#" class="btn btn-link"> Kategori <i class="icon icon-caret"></i></a>
-								<div class="popover-container">
-									<div class="card">
-										<div class="card-header">Header</div>
-										<div class="card-body">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni minus vel, impedit ipsa asperiores natus eveniet
-												harum labore perspiciatis vero, voluptas quis corrupti esse consequatur laboriosam at dolore vitae sapiente.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section class="navbar-section">
-							<!-- EMPTY -->
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="main-content">
 			<div class="inner-wrapper">
 				<div class="container">
@@ -121,29 +96,35 @@
 							</div>
 						</div>
 						<aside class="column col-4 col-sm-12 content-sidebar">
-							<div class="content-wrapper panel">
+							<div
+								class="content-wrapper panel sticky"
+							>
 								<div class="panel-header">
-									<div class="panel-title h5">Lowongan Terbaru</div>
+									<div class="panel-title h5">Kabar Terbaru</div>
 								</div>
-								<div class="panel-body">
+								<div class="panel-nav">
+									<ul class="tab tab-block">
+										<li class="tab-item active">
+											<a href="#" data-tab-action="lowongan">Lowongan</a>
+										</li>
+										<li class="tab-item">
+											<a href="#" data-tab-action="member">Member</a>
+										</li>
+									</ul>
+								</div>
+								<div class="panel-body tab-container" data-tab-target="lowongan">
 									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto consequatur sapiente eum, tempora similique
 										sequi accusantium illo voluptates illum ullam necessitatibus quibusdam hic inventore. Veritatis maiores deserunt
 										maxime sed rerum.</p>
 								</div>
-								<div class="panel-footer">
+								<div class="panel-body tab-container d-none" data-tab-target="member">
+									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem itaque est fugit.</p>
+								</div>
+								<div class="panel-footer" data-tab-target="lowongan">
 									<a href="#">Semua Lowongan …</a>
 								</div>
-							</div>
-							<div class="content-wrapper panel">
-								<div class="panel-header">
-									<div class="panel-title h5">Member Terbaru</div>
-								</div>
-								<div class="panel-body">
-									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quaerat hic maiores, recusandae laborum suscipit
-										id repellat ab dolorem odit eveniet! Quo quas repudiandae hic culpa nemo impedit dicta iusto.</p>
-								</div>
-								<div class="panel-footer">
-									<a href="#">Lihat Direktori …</a>
+								<div class="panel-footer d-none" data-tab-target="member">
+									<a href="#">Semua Member …</a>
 								</div>
 							</div>
 						</aside>
