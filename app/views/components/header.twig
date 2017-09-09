@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="navbar">
 				<section class="navbar-section">
-					<a href="#" class="navbar-brand portal-logo">
+					<a href="/" class="navbar-brand portal-logo">
 						<h1>SPBU17</h1>
 					</a>
 					<a href="#" class="btn btn-link active">
@@ -17,7 +17,7 @@
 					</a>
 				</section>
 				<section class="navbar-section">
-					{% if user %}
+					{% if user and not noHeader %}
 						<div class="dropdown dropdown-right">
 							<figure class="avatar badge dropdown-toggle" data-badge="8" tabindex="0">
 								<img src="http://via.placeholder.com/350x350" alt="maman" />
@@ -42,7 +42,7 @@
 								</li>
 							</ul>
 						</div>
-					{% else %}
+					{% elseif not user and not noHeader %}
 						<a href="#" class="btn btn-link" data-toggle="content:showAuth">
 							<span class="text-secondary">Masuk/Register</span>
 						</a>
@@ -52,6 +52,7 @@
 		</div>
 	</div>
 </header>
+{% if not noHeader %}
 <section class="page-filter">
 	<div class="inner-wrapper">
 		<div class="filters">
@@ -81,7 +82,8 @@
 		</div>
 	</div>
 </section>
-{% if not user %}
+{% endif %}
+{% if not user and not noHeader %}
 <div class="login-form">
 	<div class="inner-wrapper">
 		<div class="container grid-sm">

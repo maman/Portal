@@ -8,7 +8,7 @@
 // Custom variables
 @import 'variables.less';
 
-@footerHeight: 180px;
+@footerHeight: 80px;
 @authHeight: 200px;
 
 /* Layout */
@@ -156,9 +156,61 @@ section.main {
   .content-wrapper {
     background-color: #fff;
     margin: 1rem 0;
+    border-radius: 3px;
     &.sticky {
       position: sticky;
       top: 2.4rem;
+    }
+  }
+  .content-header {
+    border-bottom: 1px solid @gray-color-light;
+    .title-text {
+      margin-bottom: 0;
+      span {
+        font-weight: bold;
+      }
+    }
+    .title-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .no-margin {
+    padding: 0;
+  }
+  .no-overflow {
+    overflow: auto;
+  }
+}
+
+/* Content Lists */
+.lists {
+  .list {
+    position: relative;
+    padding: 1rem 0.8rem;
+    padding-right: 110px;
+    display: block;
+    color: @dark-color;
+    border-bottom: 1px solid @gray-color-light;
+    .list-accent {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .list-title {
+      a {
+        color: @dark-color;
+      }
+      .list-title-text {
+        font-size: 18px;
+      }
+    }
+    .list-detail {
+      .timestamp {
+        border-bottom: 1px dotted @gray-color-dark;
+      }
     }
   }
 }

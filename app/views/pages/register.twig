@@ -1,0 +1,30 @@
+{% extends 'base.twig' %}
+
+{% block navbar %}
+{{ include('components/header.twig', { noHeader: true }) }}
+{% endblock %}
+
+{% block content %}
+<section class="container main">
+	<div class="columns">
+		<div class="column col-10 col-mx-auto">
+			<div class="panel content-wrapper">
+				<div class="panel-header">
+					<div class="panel-title">
+						<h3>Daftar Baru</h3>
+					</div>
+				</div>
+				<div class="panel-nav">
+					<!-- navigation components: tabs, breadcrumbs or pagination -->
+				</div>
+				<div class="panel-body">
+					<!-- contents -->
+				</div>
+				<div class="panel-footer">
+					<!-- buttons or inputs -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
