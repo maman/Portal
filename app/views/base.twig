@@ -8,8 +8,21 @@
 	{% if env == 'production' %}<link rel="stylesheet" href="{{assetsUrl}}/css/main.css">{% endif %}
 </head>
 <body>
-	{% block navbar %}{% endblock %}
-  {% block content %}{% endblock %}
+	<div id="rootContainer">
+		<div id="rootNavbar">
+			{% block navbar %}{% endblock %}
+		</div>
+		<div id="rootContent">
+			{% block content %}{% endblock %}
+		</div>
+		<div id="rootFooter">
+		{% block footer %}
+			<footer>
+				<div>lol</div>
+			</footer>
+		{% endblock %}
+		</div>
+	</div>
 	<script src="{{assetsUrl}}/js/dist/main.bundle.js" async></script>
 </body>
 </html>

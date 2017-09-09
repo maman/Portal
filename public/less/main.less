@@ -8,9 +8,38 @@
 // Custom variables
 @import 'variables.less';
 
+@footerHeight: 180px;
 @authHeight: 200px;
 
 /* Layout */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#rootContainer {
+  min-height: 100%;
+  background-color: #eee;
+  position: relative;
+}
+
+#rootNavbar {
+}
+
+#rootContent {
+  padding-bottom: @footerHeight;
+}
+
+#rootFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: @footerHeight;
+  background-color: #222;
+}
+
 .inner-wrapper {
   margin: 0 auto;
   flex: 1 1 auto;
@@ -23,7 +52,8 @@ header.main-header {
   z-index: 2;
   .portal-logo {
     height: 60px;
-    margin-right: 2rem;
+    padding-right: 2rem;
+    overflow: hidden;
     h1 {
       margin: 0;
       padding: 0;
@@ -73,13 +103,13 @@ header.main-header {
   z-index: 3;
   position: sticky;
   top: 0;
+  background-color: #fff;
   .filters {
     box-shadow: none;
-    transition: box-shadow .5s ease-out;
-    background-color: #fff;
+    transition: box-shadow 0.5s ease-out;
     &.stuck {
-      transition: box-shadow .25s ease-in;
-      box-shadow: 0 1px 15px rgba(0, 0, 0, .2);
+      transition: box-shadow 0.25s ease-in;
+      box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
     }
   }
 }
@@ -94,14 +124,14 @@ header.main-header {
   height: @authHeight;
   .form-main {
     .form-group {
-      margin: .8rem 0;
+      margin: 0.8rem 0;
     }
     .btn-forgot-password {
       padding-left: 0;
     }
   }
   .login-print {
-    padding: .4rem 0;
+    padding: 0.4rem 0;
   }
 }
 
@@ -109,10 +139,10 @@ header.main-header {
 section.main {
   position: relative;
   z-index: 2;
-  transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   &.showAuth {
     transform: translateY(@authHeight);
-    transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     .content-wrapper {
       &.sticky {
         top: -7.4rem;
